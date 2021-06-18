@@ -10,7 +10,11 @@ function routes(/*string $page */)
         // routes
         switch ($url) {
             case $urlInit . "/":
-                include('public/pages/login.php');
+                include('public/pages/home.php');
+                break;
+
+            case $urlInit . "/home":
+                include('public/pages/home.php');
                 break;
 
             case $urlInit .  "/entrar":
@@ -38,10 +42,10 @@ function routes(/*string $page */)
                 break;
 
             case $urlInit .  "/contato":
-                include('pages/cotato.php');
+                include('public/pages/cotato.php');
                 break;
             default:
-                include('pages/login.php');
+                include('public/pages/login.php');
                 break;
         }
     }
