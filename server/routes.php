@@ -1,4 +1,5 @@
 <?php
+include('settings.php');
 function routes(/*string $page */)
 {
     //print_r($_SERVER);
@@ -45,7 +46,7 @@ function routes(/*string $page */)
                 include('public/pages/cotato.php');
                 break;
             default:
-                include('public/pages/login.php');
+            include('public/pages/login.php');
                 break;
         }
     }
