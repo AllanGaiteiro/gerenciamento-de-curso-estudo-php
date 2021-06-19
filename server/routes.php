@@ -3,8 +3,10 @@ include('settings.php');
 function routes(/*string $page */)
 {
     //print_r($_SERVER);
-    $url = $_SERVER['REQUEST_URI'];
-    $urlInit = "/gerenciamento-de-curso-php";
+    global $urlInit;
+
+
+    $url = $_SERVER['REDIRECT_URL'];
     $method = $_SERVER['REQUEST_METHOD'];
     ///$method === 'GET'
     // routes
@@ -32,6 +34,9 @@ function routes(/*string $page */)
         case $urlInit .  "/listagem":
             include('public/pages/listagem.php');
             break;
+        case $urlInit .  "/visualizar":
+            include('public/pages/visualizar.php');
+            break;
 
         case $urlInit .  "/adicionar-curso":
             include('public/pages/adcionar-editar.php');
@@ -49,7 +54,7 @@ function routes(/*string $page */)
             include('public/pages/cotato.php');
             break;
         default:
-        include('public/pages/login.php');
+            include('public/pages/login.php');
             break;
     }
 }

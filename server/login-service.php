@@ -5,7 +5,6 @@ session_start();
 
 
 if (isset($_POST["login"])) {
-    echo $_POST["login"];
     $usuario    = $_POST["login"];
     $senha      = $_POST["password"];
 
