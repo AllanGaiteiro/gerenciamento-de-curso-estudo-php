@@ -1,12 +1,12 @@
 <?php
 include('settings.php');
+
 function routes(/*string $page */)
 {
     //print_r($_SERVER);
     global $urlInit;
-
-
     $url = $_SERVER['REDIRECT_URL'];
+    //$uri = $_SERVER['REQUEST_URI'];
     $method = $_SERVER['REQUEST_METHOD'];
     ///$method === 'GET'
     // routes
@@ -28,6 +28,9 @@ function routes(/*string $page */)
 
 
         case $urlInit .  "/cadastrar":
+            if ($method === 'POST') {
+                include('cadastrar-service.php');
+            }
             include('public/pages/cadastro.php');
             break;
 
@@ -35,7 +38,8 @@ function routes(/*string $page */)
             include('public/pages/listagem.php');
             break;
         case $urlInit .  "/visualizar":
-            include('public/pages/visualizar.php');
+        include('public/pages/visualizar.php'/*. str_replace($url, '', $uri)*/);
+            
             break;
 
         case $urlInit .  "/adicionar-curso":
